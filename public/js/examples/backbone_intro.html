@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>hello-backbonejs</title>
+</head>
+<body>
+  <style>
+	.hidden { display: none;}
+  </style>
+
+  <script src="javascripts/app.js"></script>
+  <script src="/javascripts/base64.js"></script>
+  
+  <script src="jquery.min.js"></script>
+  <script src="json2.js"></script>
+  <script src="underscore-min.js"></script>
+  <script src="backbone-min.js"></script>
+
+  <script src="views/user_panel_view.js"></script>
+  <script src="views/item_view.js"></script>
+  <script src="views/item_list_view.js"></script>
+  <script src="models/models.js"></script>
+  
+  <script>
+  var listView;
+
+  $(document).ready(function ()
+  {  		
+  	 	// initializes and attaches itself to DIV elements
+		userPanelView = new UserPanelView();
+		item_listView = new ItemListView();
+		App.init();
+  })
+  </script>
+
+  <!-- UserPanelView -->
+  <div id="user_panel_view">
+	<h1>Sign on</h1>
+  	Username:<br/>
+  	<input type="text" id="username">
+  	<br/>Password:<br/>
+  	<input type="password" id="password">
+   	<input type="button" id="sign_on_button" value="Sign on">
+   	<input type="button" id="register_button" value="Register">
+  	<p id="sign_on_message" style="color:red;font-weight:bold">Please sign on or register before proceeding.</p>
+  </div>
+  <br>
+  
+  <!-- ItemListView() -->
+  <div id="item_list_view" >
+  		<h1 id="item_list_view_header" class="hidden">Welcome to your Backbone</h1>		
+		<hr>
+   	 	<input type="button" id="addItemButton" value="Add Item">
+  </div>
+
+<!-- ItemView template (inserted into ItemListView) -->
+<div id="item_view_template" class="hidden">
+  	<span class="item_name" style="color:black"></span> &nbsp; &nbsp; 
+	<span class="swap" style="color:blue;">[swap]</span> 
+	<span class="delete" style="color:red;">[delete]</span>
+</div>
+<p id="debug-msg" style="color:white"></p>
+</body>
+</html>
